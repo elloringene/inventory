@@ -1,0 +1,32 @@
+<?php $__env->startSection('content'); ?>
+    <div class="container">
+        <div class="row">
+        <h2>Edit Category</h2>
+        <?php echo Form::model($category , ['method'=>'PATCH']); ?>
+
+            <?php echo Form::label('Category Name' , 'Name:');; ?>
+
+            <?php echo Form::input('text' , 'name' , null , [ 'class' => 'form-control' ] );; ?>
+
+            <br>
+            <?php echo Form::label('For' , 'For:');; ?>
+
+            <?php echo Form::select('for', $categories , null, [ 'class' => 'form-control' ]);; ?>
+
+            <br>
+            <?php echo Form::label('Description' , 'Description:');; ?>
+
+            <?php echo Form::textarea('description', null, [ 'class' => 'form-control' ]);; ?>
+
+            <br>
+            <?php echo Form::input('hidden' , 'slug' , null );; ?>
+
+
+            <?php echo Form::submit('Submit' , [ 'class' => 'form-control' ] );; ?>
+
+        <?php echo Form::close(); ?>
+
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

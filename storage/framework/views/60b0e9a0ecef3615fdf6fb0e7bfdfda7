@@ -1,0 +1,44 @@
+ 
+
+ <?php $__env->startSection('content'); ?>
+ <div class="container">
+     <div class="row">
+         <div class="col-md-10 col-md-offset-1">
+             <div class="panel panel-default">
+                 <div class="panel-heading">Brands</div>
+
+                 <div class="panel-body">
+
+                    <table class="table table-condensed">
+                        <thead>
+                          <tr>
+                            <th>Brand Name</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                    <?php foreach($brands as $brand): ?>
+                        <tr>
+                            <td><?php echo e($brand->name); ?></td>
+                            <td><?php echo e($brand->description); ?></td>
+                            <td>
+                                <?php echo Html::link('brands/'.$brand->slug.'/edit', 'Edit');; ?> |
+                                <?php echo Html::link('brands/delete/'.$brand->slug, 'Delete');; ?>
+
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                    <?php echo Html::link('brands/create' , 'Add Brand +');; ?>
+
+                 </div><!-- ENd Panel Body -->
+             </div><!-- ENd panel -->
+         </div><!-- ENd Col -->
+     </div><!-- End Row -->
+ </div><!-- End Container -->
+ <?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

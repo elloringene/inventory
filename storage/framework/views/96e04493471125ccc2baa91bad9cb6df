@@ -1,0 +1,39 @@
+ 
+
+ <?php $__env->startSection('content'); ?>
+ <div class="container">
+     <div class="row">
+         <div class="col-md-10 col-md-offset-1">
+             <div class="panel panel-default">
+                 <div class="panel-heading">Login</div>
+
+                 <div class="panel-body">
+                    <?php if(Session::has('message')): ?>
+                        <p class="alert <?php echo e(Session::get('alert-class', 'alert-info')); ?>"><?php echo e(Session::get('message')); ?></p>
+                    <?php endif; ?>
+
+                    <?php echo Form::open(); ?>
+
+                        <?php echo Form::label('E-mail' , 'E-mail:');; ?>
+
+                        <?php echo Form::input('text', 'email' , null , ['class'=>'form-control']);; ?>
+
+                        <br>
+                        <?php echo Form::label('Password' , 'Password:');; ?>
+
+                        <?php echo Form::password('password' , ['class'=>'form-control']);; ?>
+
+                        <br>
+                        <?php echo Form::submit('Submit' , ['class'=>'form-control'] );; ?>
+
+                    <?php echo Form::close(); ?>
+
+
+                 </div><!-- ENd Panel Body -->
+             </div><!-- ENd panel -->
+         </div><!-- ENd Col -->
+     </div><!-- End Row -->
+ </div><!-- End Container -->
+ <?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
